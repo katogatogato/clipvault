@@ -1,0 +1,47 @@
+{
+  "name": "clipvault",
+  "version": "1.0.0",
+  "description": "Smart clipboard manager — search, categorize, and quick-paste your clipboard history",
+  "author": "katogatogato",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/katogatogato/clipvault"
+  },
+  "keywords": [
+    "clipboard",
+    "manager",
+    "electron",
+    "productivity",
+    "desktop"
+  ],
+  "main": "dist/main/main.js",
+  "scripts": {
+    "build": "tsc && cp src/renderer/index.html src/renderer/styles.css dist/renderer/",
+    "start": "npm run build && electron dist/main/main.js",
+    "dev": "tsc --watch",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "electron": "^35.1.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "electron-builder": "^26.0.12",
+    "typescript": "^5.8.3"
+  },
+  "build": {
+    "appId": "com.katogatogato.clipvault",
+    "productName": "ClipVault",
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"]
+    },
+    "win": {
+      "target": ["nsis"]
+    }
+  }
+}
